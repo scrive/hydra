@@ -26,7 +26,6 @@ import (
 	"github.com/ory/x/reqlog"
 
 	"github.com/julienschmidt/httprouter"
-	"github.com/rs/cors"
 	"github.com/spf13/cobra"
 	"github.com/urfave/negroni"
 	"go.uber.org/automaxprocs/maxprocs"
