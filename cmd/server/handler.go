@@ -57,14 +57,6 @@ func EnhanceMiddleware(ctx context.Context, sl *servicelocatorx.Options, d drive
 	for _, mw := range sl.HTTPMiddlewares() {
 		n.UseFunc(mw)
 	}
-	n.UseFunc(func(w http.ResponseWriter, r *http.Request, next http.HandlerFunc) {
-		cfg, enabled := d.Config().CORS(r.Context(), iface)
-		if !enabled {
-			next(w, r)
-			return
-		}
-		cors.New(cfg).ServeHTTP(w, r, next)
-	})
 
 	n.UseHandler(router)
 
